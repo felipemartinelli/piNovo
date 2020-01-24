@@ -45,9 +45,9 @@ public class PostController {
 	}
 	
 	@PutMapping("/post/alterar")
-	public ResponseEntity<String> alteraPost(@RequestBody Post post){
+	public ResponseEntity<Post> alteraPost(@RequestBody Post post){
 		bd.atualizar(post);
-		return ResponseEntity.ok("Success");
+		return ResponseEntity.ok(post);
 	}
 	
 	@DeleteMapping("/post/{id}")
