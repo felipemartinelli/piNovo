@@ -46,6 +46,7 @@ public class PostController {
 	
 	@PutMapping("/post/alterar")
 	public ResponseEntity<Post> alteraPost(@RequestBody Post post){
+		System.out.println(post);
 		bd.atualizar(post);
 		return ResponseEntity.ok(post);
 	}

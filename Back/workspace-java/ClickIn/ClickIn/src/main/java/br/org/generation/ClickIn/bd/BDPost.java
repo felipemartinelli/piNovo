@@ -38,9 +38,15 @@ private ArrayList<Post> lista;
 				break;
 			}
 		}
+		
+		System.out.println("Posicao encontrada = "+posicao);
 		if (posicao >=0) {
 			lista.set(posicao,p);
 		}	
+		
+		System.out.println("LISTA ATUALIZADA");
+		System.out.println(lista);
+		System.out.println("----------");
 	}
     // Correspondente ao DELETE
 	public boolean apagar(int id) {

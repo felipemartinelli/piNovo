@@ -39,4 +39,7 @@ public class Post {
 		this.dataInclusao = dataInclusao;
 	}
 	
+	public String toString() {
+		return "POST="+texto;
+	}
 }
