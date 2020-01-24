@@ -29,5 +29,9 @@ export class PostService {
     return this.http.post("http://localhost:8080/post/novo",posts);
   }
 
+  public alteraPost(posts:Post){
+    return this.http.put("http://localhost:8080/post/alterar",posts);
+  }
+
 
 }

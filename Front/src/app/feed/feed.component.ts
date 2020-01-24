@@ -16,12 +16,15 @@ export class FeedComponent implements OnInit {
   usuario: Usuario;
   posts: Post[];
   private idBusca:number;
+  private idPostagem;
   private _msgErro: string = null;
   private _post: Post=null;
   private vetorOunao: boolean = true;
   private textPost: string;
+  private textPostModel: string;
   public post: Post = new Post();
   private i: number = 1;
+  public idModal: number = 0;
   
 
   constructor(private postService: PostService, private router: Router) { }
@@ -66,6 +69,31 @@ export class FeedComponent implements OnInit {
       alert("Não é possivel incluir um texto em branco");
     }
 
+    }
+
+
+    private editar(id:number){
+      this.idModal = id;
+      console.log(this.idModal);
+    }
+
+    enviarAlteracoes(id:number){
+      this.post.idPostagem = id;
+      this.post.titulo = null;
+      this.post.texto = this.textPostModel;
+      this.post.dataInclusao = "23/01/2020";
+      this.postService.alteraPost(this.post).subscribe((res)=>{
+        alert("Atualizado com sucesso");
+        this.acharTodos();
+        $('#btnfecharLogin').click();
+      },
+      (err)=>{
+        alert("Erro ao atualizar");
+        console.log(err);
+        this.acharTodos();
+        $('#btnfecharLogin').click();
+      });
+    
     }
 
 
